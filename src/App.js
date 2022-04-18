@@ -14,7 +14,8 @@ import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass.js';
 function App() {
 
   const radius = 6371;
-  const tilt = 0.41;
+  const tilt = 0;
+  // const tilt = 0.41;
   const rotationSpeed = 0;
 
 
@@ -144,7 +145,7 @@ function App() {
 
     //
 
-    controls = new FlyControls(camera, renderer.domElement);
+    controls = new FlyControls(camera, meshPlanet, renderer.domElement);
 
     controls.movementSpeed = 1000;
     controls.domElement = renderer.domElement;
@@ -197,16 +198,18 @@ function App() {
 
     const delta = clock.getDelta();
 
-    meshPlanet.rotation.y += rotationSpeed * delta;
+    // meshPlanet.rotation.y += rotationSpeed * delta;
 
     // slow down as we approach the surface
 
-    dPlanet = camera.position.length();
+    // dPlanet = camera.position.length();
 
-    d = (dPlanet - radius * 1.01);
+    // d = (dPlanet - radius * 1.01);
 
-    controls.movementSpeed = 0.33 * d;
-    controls.update(delta);
+    // controls.movementSpeed = 0.33 * d;
+    // controls.update(delta);
+
+    // controls.rotate(meshPlanet);
 
     composer.render(delta);
 
